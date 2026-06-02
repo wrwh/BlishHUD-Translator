@@ -1,0 +1,33 @@
+name: 云端自动编译打包
+on: [push]
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - name: 签出代码
+        uses: actions/checkout@v3
+
+      - name: 设置 .NET 编译环境
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: '6.0.x'
+
+      - name: 下载游戏依赖包
+        run: dotnet add package BlishHUD --version 0.11.8
+
+      - name: 开始编译
+        run: dotnet build --configuration Release
+
+      - name: 打包为 BHM 插件
+        run: |
+          mkdir out
+          copy manifest.json out\
+          copy bin\Release\net6.0\CustomTranslator.dll out\
+          powershell Compress-Archive -Path out\* -DestinationPath CustomTranslator.bhm
+
+      - name: 上传成品
+        uses: actions/upload-artifact@v3
+        with:
+          name: 编译好的汉化插件
+          path: CustomTranslator.bhm

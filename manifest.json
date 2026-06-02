@@ -1,0 +1,12 @@
+{
+  "manifest_version": 1,
+  "id": "estreya.custom_translator",
+  "version": "1.0.0",
+  "name": "实时文本汉化补丁",
+  "description": "通过外部文本实时汉化其他插件的 UI 字符",
+  "author": "wrwh",
+  "package": "CustomTranslator.dll",
+  "dependencies": {
+    "blishhud": "^0.11.0"
+  }
+}
