@@ -6,10 +6,10 @@ jobs:
     runs-on: windows-latest
     steps:
       - name: 签出代码
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: 设置 .NET 编译环境
-        uses: actions/setup-dotnet@v3
+        uses: actions/setup-dotnet@v4
         with:
           dotnet-version: '6.0.x'
 
@@ -27,7 +27,7 @@ jobs:
           powershell Compress-Archive -Path out\* -DestinationPath CustomTranslator.bhm
 
       - name: 上传成品
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: 编译好的汉化插件
           path: CustomTranslator.bhm
