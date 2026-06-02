@@ -5,10 +5,17 @@
     <AssemblyName>CustomTranslator</AssemblyName>
     <RootNamespace>CustomTranslator</RootNamespace>
     <CopyLocalLockFileAssemblies>false</CopyLocalLockFileAssemblies>
+
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
 
   <ItemGroup>
+    <!-- BlishHUD 核心依赖包 -->
     <PackageReference Include="BlishHUD" Version="0.11.8" />
+    
+    <!-- 手动显式补齐拦截器和图形渲染的基础依赖包 -->
+    <PackageReference Include="MonoMod.RuntimeDetour" Version="22.3.23.2" />
+    <PackageReference Include="MonoGame.Framework.WindowsDX" Version="3.8.1.303" />
   </ItemGroup>
 
 </Project>
