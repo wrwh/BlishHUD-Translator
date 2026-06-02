@@ -11,6 +11,7 @@ jobs:
       - name: 设置 .NET 编译环境
         uses: actions/setup-dotnet@v4
         with:
+          # 下载包含 net472 兼容环境的通用编译工具
           dotnet-version: '6.0.x'
 
       - name: 开始编译
@@ -20,7 +21,7 @@ jobs:
         run: |
           mkdir out
           copy manifest.json out\
-          copy bin\Release\net6.0\CustomTranslator.dll out\
+          copy bin\Release\CustomTranslator.dll out\
           powershell Compress-Archive -Path out\* -DestinationPath CustomTranslator.bhm
 
       - name: 上传成品

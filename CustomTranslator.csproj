@@ -1,19 +1,17 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net6.0-windows</TargetFramework>
+    
+    <TargetFramework>net472</TargetFramework>
     <AssemblyName>CustomTranslator</AssemblyName>
     <RootNamespace>CustomTranslator</RootNamespace>
-    <CopyLocalLockFileAssemblies>false</CopyLocalLockFileAssemblies>
-
-    <LangVersion>latest</LangVersion>
+   
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
   </PropertyGroup>
 
   <ItemGroup>
-    <!-- BlishHUD 核心依赖包 -->
-    <PackageReference Include="BlishHUD" Version="0.11.8" />
-    
-    <!-- 手动显式补齐拦截器和图形渲染的基础依赖包 -->
+    <!--指定具体的 BlishHUD 支持版本 -->
+    <PackageReference Include="BlishHUD" Version="1.3.0" />
     <PackageReference Include="MonoMod.RuntimeDetour" Version="22.3.23.2" />
     <PackageReference Include="MonoGame.Framework.WindowsDX" Version="3.8.1.303" />
   </ItemGroup>
